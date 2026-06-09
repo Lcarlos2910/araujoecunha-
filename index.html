@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Araújo & Cunha | Assessoria Jurídica Médica</title>
+  <meta name="description" content="Assessoria jurídica por assinatura para médicos. Proteção jurídica preventiva, orientação em sindicâncias do CRM e suporte contínuo de advogados especializados em Direito Médico." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --marrom: #5C2E0E;
+      --marrom-medio: #7A3E1A;
+      --dourado: #C9A84C;
+      --dourado-claro: #E8C97A;
+      --creme: #F5F0E8;
+      --texto: #333333;
+      --branco: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--texto);
+      background: var(--branco);
+    }
+
+    /* ── NAV ─────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(92, 46, 14, 0.97);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 5%;
+      border-bottom: 1px solid var(--dourado);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      color: var(--dourado);
+      font-size: 1.15rem;
+      letter-spacing: 0.5px;
+    }
+    .nav-logo span { color: var(--branco); font-size: 0.78rem; display: block; font-family: 'Inter', sans-serif; font-weight: 300; letter-spacing: 1px; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { color: var(--branco); text-decoration: none; font-size: 0.85rem; font-weight: 400; opacity: 0.85; transition: opacity 0.2s; }
+    .nav-links a:hover { opacity: 1; color: var(--dourado-claro); }
+    .nav-cta {
+      background: var(--dourado);
+      color: var(--marrom) !important;
+      font-weight: 600 !important;
+      padding: 8px 18px;
+      border-radius: 4px;
+      opacity: 1 !important;
+      font-size: 0.82rem !important;
+    }
+    .nav-cta:hover { background: var(--dourado-claro) !important; }
+
+    /* ── HERO ────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(145deg, var(--marrom) 0%, #3D1A06 60%, #2A1000 100%);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 100px 5% 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 40%, rgba(201,168,76,0.12) 0%, transparent 70%);
+    }
+    .hero-content { position: relative; max-width: 720px; }
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--dourado);
+      color: var(--dourado);
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: var(--branco);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .hero-title em {
+      color: var(--dourado);
+      font-style: normal;
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+      margin: 20px 0 36px;
+      font-weight: 300;
+    }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--dourado);
+      color: var(--marrom);
+      font-weight: 700;
+      padding: 15px 32px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary:hover { background: var(--dourado-claro); transform: translateY(-2px); }
+    .btn-secondary {
+      border: 1.5px solid rgba(255,255,255,0.4);
+      color: var(--branco);
+      padding: 15px 32px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .btn-secondary:hover { border-color: var(--dourado); color: var(--dourado); transform: translateY(-2px); }
+    .hero-stats {
+      display: flex; justify-content: center; gap: 40px;
+      margin-top: 56px;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--dourado); }
+    .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+    /* ── SEÇÃO GENÉRICA ──────────────────────────── */
+    section { padding: 80px 5%; }
+    .container { max-width: 1000px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.72rem; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--dourado); margin-bottom: 10px; font-weight: 600;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      color: var(--marrom);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 1rem; color: #555; line-height: 1.75;
+      max-width: 600px; font-weight: 300;
+    }
+    .divider {
+      width: 48px; height: 3px;
+      background: var(--dourado);
+      margin: 18px 0 32px;
+    }
+
+    /* ── PROBLEMA ────────────────────────────────── */
+    #problema { background: var(--creme); }
+    .problema-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .problema-card {
+      background: var(--branco);
+      border-left: 3px solid var(--dourado);
+      padding: 22px 24px;
+      border-radius: 4px;
+    }
+    .problema-card p { font-size: 0.93rem; line-height: 1.65; color: var(--texto); }
+
+    /* ── SOLUÇÃO ─────────────────────────────────── */
+    #solucao { background: var(--branco); }
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px; margin-top: 40px;
+    }
+    .servico-card {
+      border: 1px solid #E8E0D4;
+      border-radius: 8px;
+      padding: 26px 24px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .servico-card:hover { box-shadow: 0 4px 20px rgba(92,46,14,0.1); border-color: var(--dourado); }
+    .servico-icon { font-size: 1.6rem; margin-bottom: 12px; }
+    .servico-card h3 { font-size: 0.95rem; font-weight: 600; color: var(--marrom); margin-bottom: 8px; }
+    .servico-card p { font-size: 0.88rem; color: #666; line-height: 1.6; }
+
+    /* ── COMO FUNCIONA ───────────────────────────── */
+    #como-funciona { background: var(--marrom); }
+    #como-funciona .section-title { color: var(--branco); }
+    #como-funciona .section-label { color: var(--dourado-claro); }
+    #como-funciona .section-desc { color: rgba(255,255,255,0.65); }
+    .passos { margin-top: 44px; display: flex; flex-direction: column; gap: 16px; }
+    .passo {
+      display: flex; align-items: flex-start; gap: 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 8px;
+      padding: 22px 26px;
+    }
+    .passo-num {
+      min-width: 38px; height: 38px;
+      background: var(--dourado);
+      color: var(--marrom);
+      font-weight: 800;
+      font-size: 1rem;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .passo h3 { font-size: 0.95rem; color: var(--branco); font-weight: 600; margin-bottom: 5px; }
+    .passo p { font-size: 0.87rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+    /* ── PLANOS ──────────────────────────────────── */
+    #planos { background: var(--creme); }
+    .planos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px; margin-top: 44px; max-width: 700px;
+    }
+    .plano-card {
+      background: var(--branco);
+      border: 1.5px solid #E8E0D4;
+      border-radius: 10px;
+      padding: 32px 28px;
+      text-align: center;
+      position: relative;
+      transition: transform 0.2s;
+    }
+    .plano-card:hover { transform: translateY(-4px); }
+    .plano-card.destaque {
+      border-color: var(--dourado);
+      background: var(--marrom);
+    }
+    .plano-badge {
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      background: var(--dourado);
+      color: var(--marrom);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+    }
+    .plano-nome { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 16px; }
+    .plano-card.destaque .plano-nome { color: rgba(255,255,255,0.7); }
+    .plano-card:not(.destaque) .plano-nome { color: var(--marrom-medio); }
+    .plano-preco { font-family: 'Playfair Display', serif; font-size: 2.8rem; line-height: 1; }
+    .plano-card.destaque .plano-preco { color: var(--dourado); }
+    .plano-card:not(.destaque) .plano-preco { color: var(--marrom); }
+    .plano-periodo { font-size: 0.82rem; margin-top: 4px; margin-bottom: 24px; }
+    .plano-card.destaque .plano-periodo { color: rgba(255,255,255,0.55); }
+    .plano-card:not(.destaque) .plano-periodo { color: #888; }
+    .plano-items { list-style: none; text-align: left; margin-bottom: 28px; }
+    .plano-items li {
+      font-size: 0.87rem; padding: 7px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .plano-card.destaque .plano-items li { color: rgba(255,255,255,0.8); border-bottom-color: rgba(255,255,255,0.1); }
+    .plano-items li::before { content: '✓'; color: var(--dourado); font-weight: 700; flex-shrink: 0; }
+    .plano-btn {
+      display: block; width: 100%;
+      padding: 13px;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .plano-card.destaque .plano-btn { background: var(--dourado); color: var(--marrom); }
+    .plano-card.destaque .plano-btn:hover { background: var(--dourado-claro); }
+    .plano-card:not(.destaque) .plano-btn { background: var(--marrom); color: var(--branco); }
+    .plano-card:not(.destaque) .plano-btn:hover { background: var(--marrom-medio); }
+
+    /* ── QUEM SOMOS ──────────────────────────────── */
+    #quem-somos { background: var(--branco); }
+    .advogados {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px; margin-top: 44px;
+    }
+    .advogado-card {
+      border: 1px solid #E8E0D4;
+      border-radius: 10px;
+      padding: 30px 28px;
+    }
+    .advogado-inicial {
+      width: 56px; height: 56px;
+      background: var(--marrom);
+      color: var(--dourado);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .advogado-nome { font-weight: 700; font-size: 1rem; color: var(--marrom); margin-bottom: 4px; }
+    .advogado-oab { font-size: 0.78rem; color: var(--dourado); font-weight: 600; margin-bottom: 12px; }
+    .advogado-bio { font-size: 0.88rem; color: #666; line-height: 1.65; }
+
+    /* ── FAQ ─────────────────────────────────────── */
+    #faq { background: var(--creme); }
+    .faq-list { margin-top: 40px; display: flex; flex-direction: column; gap: 12px; max-width: 720px; }
+    .faq-item {
+      background: var(--branco);
+      border: 1px solid #E8E0D4;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .faq-pergunta {
+      padding: 18px 22px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--marrom);
+      display: flex; justify-content: space-between; align-items: center;
+      user-select: none;
+    }
+    .faq-pergunta::after { content: '+'; font-size: 1.2rem; color: var(--dourado); font-weight: 300; transition: transform 0.2s; }
+    .faq-item.open .faq-pergunta::after { transform: rotate(45deg); }
+    .faq-resposta {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s;
+      font-size: 0.88rem; color: #555; line-height: 1.7;
+      padding: 0 22px;
+    }
+    .faq-item.open .faq-resposta { max-height: 200px; padding: 0 22px 18px; }
+
+    /* ── CTA FINAL ───────────────────────────────── */
+    #cta {
+      background: linear-gradient(135deg, var(--marrom) 0%, #3D1A06 100%);
+      text-align: center;
+      padding: 80px 5%;
+    }
+    #cta .section-title { color: var(--branco); margin-bottom: 16px; }
+    #cta p { color: rgba(255,255,255,0.65); font-size: 1rem; max-width: 520px; margin: 0 auto 36px; line-height: 1.7; font-weight: 300; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FOOTER ──────────────────────────────────── */
+    footer {
+      background: #1A0800;
+      padding: 36px 5%;
+      text-align: center;
+      border-top: 1px solid rgba(201,168,76,0.3);
+    }
+    footer p { font-size: 0.8rem; color: rgba(255,255,255,0.35); line-height: 1.8; }
+    footer a { color: var(--dourado); text-decoration: none; }
+
+    /* ── WHATSAPP FIXO ───────────────────────────── */
+    .whatsapp-fixo {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      background: #25D366;
+      color: var(--branco);
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .whatsapp-fixo:hover { transform: scale(1.1); }
+
+    /* ── RESPONSIVO ──────────────────────────────── */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hero-stats { gap: 24px; }
+      section { padding: 60px 6%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    Araújo &amp; Cunha
+    <span>Assessoria Jurídica Médica</span>
+  </div>
+  <div class="nav-links">
+    <a href="#solucao">Serviços</a>
+    <a href="#planos">Planos</a>
+    <a href="#quem-somos">Quem Somos</a>
+    <a href="#faq">Dúvidas</a>
+    <a href="https://wa.me/5511984514456?text=Olá!%20Tenho%20interesse%20na%20assessoria%20jurídica%20médica." target="_blank" class="nav-cta">Falar com Advogado</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Direito Médico · Assessoria por Assinatura</div>
+    <h1 class="hero-title">
+      Proteção jurídica para<br/>
+      <em>quem cuida de vidas.</em>
+    </h1>
+    <p class="hero-sub">
+      Advogados especializados em Direito Médico ao seu lado — todos os dias.<br/>
+      Orientação preventiva, suporte em sindicâncias do CRM e revisão de documentos por menos de R&nbsp;100/mês.
+    </p>
+    <div class="hero-btns">
+      <a href="#planos" class="btn-primary">
+        <span>&#9679;</span> Ver Planos
+      </a>
+      <a href="https://wa.me/5511984514456?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20assessoria%20jurídica%20médica." target="_blank" class="btn-secondary">
+        Falar Agora
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">R$97</div>
+        <div class="stat-label">Uma consulta<br/>com advogado</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">vs</div>
+        <div class="stat-label">&nbsp;</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">R$100/mês</div>
+        <div class="stat-label">Acesso ilimitado<br/>à nossa assessoria</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section id="problema">
+  <div class="container">
+    <div class="section-label">O Problema</div>
+    <h2 class="section-title">O médico não aprendeu<br/>a se defender juridicamente.</h2>
+    <div class="divider"></div>
+    <p class="section-desc">E quando a notificação do CRM chega, o desespero faz o médico cometer erros que agravam a situação.</p>
+    <div class="problema-grid">
+      <div class="problema-card">
+        <p><strong>Sindicâncias surgem sem aviso</strong> e com prazo curto de resposta — geralmente 10 a 15 dias. A maioria dos médicos não sabe sequer por onde começar.</p>
+      </div>
+      <div class="problema-card">
+        <p><strong>Advogados generalistas</strong> cobram R$ 300–500 só pela consulta inicial, sem entender o contexto clínico e as especificidades do Direito Médico.</p>
+      </div>
+      <div class="problema-card">
+        <p><strong>Erros evitáveis</strong> — no prontuário, no TCLE, no contrato com a clínica — se tornam processos éticos por falta de orientação prévia.</p>
+      </div>
+      <div class="problema-card">
+        <p><strong>O médico não sabe</strong> o que pode ou não dizer nas redes sociais, o que deve constar no prontuário ou como reagir a uma reclamação formal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUÇÃO -->
+<section id="solucao">
+  <div class="container">
+    <div class="section-label">A Solução</div>
+    <h2 class="section-title">Assessoria jurídica contínua,<br/>feita para médicos.</h2>
+    <div class="divider"></div>
+    <p class="section-desc">Por uma assinatura acessível, você tem advogados especializados disponíveis para tudo que precisa no dia a dia clínico.</p>
+    <div class="servicos-grid">
+      <div class="servico-card">
+        <div class="servico-icon">⚖️</div>
+        <h3>Orientação Preventiva</h3>
+        <p>Saiba como agir nas situações de risco antes que elas virem um processo ético. Prontuário, conduta clínica, relação com paciente.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">📋</div>
+        <h3>Suporte em Sindicâncias</h3>
+        <p>Auxílio completo para entender a notificação, organizar os documentos e montar seu esclarecimento ao CRM com segurança.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">📄</div>
+        <h3>Revisão de Documentos</h3>
+        <p>TCLE, contratos com clínicas e planos de saúde, prontuários — revisados por advogados que entendem a prática médica.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">📚</div>
+        <h3>Biblioteca Jurídica</h3>
+        <p>Modelos prontos de TCLE, checklist de prontuário, guias práticos e templates para as situações mais comuns da clínica.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">💬</div>
+        <h3>Canal Direto</h3>
+        <p>Atendimento por WhatsApp ou videochamada. Resposta em até 48 horas úteis. Sem fila, sem burocracia.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">🛡️</div>
+        <h3>Desconto em Defesa Formal</h3>
+        <p>Se precisar de representação formal, assinantes têm 40% de desconto sobre a tabela de honorários. Sem surpresas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona">
+  <div class="container">
+    <div class="section-label">Como Funciona</div>
+    <h2 class="section-title">Simples do início ao fim.</h2>
+    <div class="divider" style="background:var(--dourado)"></div>
+    <p class="section-desc">Nenhuma burocracia. Você assina, acessa e tem advogados especializados ao seu lado.</p>
+    <div class="passos">
+      <div class="passo">
+        <div class="passo-num">1</div>
+        <div>
+          <h3>Escolha o plano e assine</h3>
+          <p>Pagamento via PIX. Acesso liberado imediatamente após a confirmação.</p>
+        </div>
+      </div>
+      <div class="passo">
+        <div class="passo-num">2</div>
+        <div>
+          <h3>Acesse o canal exclusivo</h3>
+          <p>Você entra para o grupo de atendimento e recebe acesso à biblioteca de materiais.</p>
+        </div>
+      </div>
+      <div class="passo">
+        <div class="passo-num">3</div>
+        <div>
+          <h3>Mande sua dúvida ou documento</h3>
+          <p>Recebeu um ofício? Tem dúvida sobre um prontuário? Manda diretamente para a equipe.</p>
+        </div>
+      </div>
+      <div class="passo">
+        <div class="passo-num">4</div>
+        <div>
+          <h3>Receba orientação especializada</h3>
+          <p>Nossa equipe analisa, orienta e acompanha até a resolução. Tudo dentro da assinatura.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section id="planos">
+  <div class="container">
+    <div class="section-label">Planos</div>
+    <h2 class="section-title">Escolha o seu plano.</h2>
+    <div class="divider"></div>
+    <p class="section-desc">Dois planos simples. Sem letra miúda. Sem surpresas.</p>
+    <div class="planos-grid">
+      <div class="plano-card destaque">
+        <div class="plano-badge">Mais Popular</div>
+        <div class="plano-nome">Plano Anual</div>
+        <div class="plano-preco">R$1.200</div>
+        <div class="plano-periodo">R$ 100 / mês · Cobrado anualmente</div>
+        <ul class="plano-items">
+          <li>Todos os serviços inclusos</li>
+          <li>Prioridade no atendimento</li>
+          <li>40% desconto em defesa formal</li>
+          <li>Biblioteca completa de modelos</li>
+          <li>Atendimento por WhatsApp e vídeo</li>
+        </ul>
+        <a href="https://wa.me/5511984514456?text=Olá!%20Quero%20assinar%20o%20Plano%20Anual%20da%20Araújo%20%26%20Cunha." target="_blank" class="plano-btn">Assinar Agora</a>
+      </div>
+      <div class="plano-card">
+        <div class="plano-nome">Plano Semestral</div>
+        <div class="plano-preco">R$700</div>
+        <div class="plano-periodo">R$ 116 / mês · Cobrado semestralmente</div>
+        <ul class="plano-items">
+          <li>Todos os serviços inclusos</li>
+          <li>40% desconto em defesa formal</li>
+          <li>Biblioteca completa de modelos</li>
+          <li>Atendimento por WhatsApp e vídeo</li>
+        </ul>
+        <a href="https://wa.me/5511984514456?text=Olá!%20Quero%20assinar%20o%20Plano%20Semestral%20da%20Araújo%20%26%20Cunha." target="_blank" class="plano-btn">Assinar Agora</a>
+      </div>
+    </div>
+    <p style="margin-top:24px;font-size:0.82rem;color:#888;">Pagamento via PIX. Acesso imediato após confirmação. Cancelamento em até 7 dias com reembolso integral.</p>
+  </div>
+</section>
+
+<!-- QUEM SOMOS -->
+<section id="quem-somos">
+  <div class="container">
+    <div class="section-label">Quem Somos</div>
+    <h2 class="section-title">Advogados especializados<br/>em Direito Médico.</h2>
+    <div class="divider"></div>
+    <div class="advogados">
+      <div class="advogado-card">
+        <div class="advogado-inicial">LA</div>
+        <div class="advogado-nome">Dr. Luiz Araújo</div>
+        <div class="advogado-oab">OAB/MG 238.469</div>
+        <p class="advogado-bio">Advogado especializado em Direito Médico e assessoria jurídica preventiva. Atua na orientação de médicos e profissionais de saúde em questões éticas, regulatórias e contratuais. (11) 98451-4456</p>
+      </div>
+      <div class="advogado-card">
+        <div class="advogado-inicial">LC</div>
+        <div class="advogado-nome">Dra. Luciana Cunha</div>
+        <div class="advogado-oab">OAB · Direito Médico</div>
+        <p class="advogado-bio">Advogada com atuação focada em Direito Médico e defesa de profissionais de saúde. Experiência em processos éticos junto ao CRM e orientação jurídica para clínicas e consultórios. (31) 99908-5326</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-label">Dúvidas Frequentes</div>
+    <h2 class="section-title">Perguntas que os médicos<br/>costumam fazer.</h2>
+    <div class="divider"></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-pergunta">A assinatura substitui um advogado de defesa?</div>
+        <div class="faq-resposta">Não. A assinatura oferece orientação jurídica preventiva e apoio técnico para situações do dia a dia clínico. Em casos que exijam representação formal perante o CRM ou juízo, a contratação de defesa específica é necessária — e assinantes têm 40% de desconto.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pergunta">Posso cancelar quando quiser?</div>
+        <div class="faq-resposta">Sim. Cancelamentos realizados em até 7 dias corridos da contratação têm reembolso integral. Após esse prazo, o acesso se mantém até o fim do período contratado.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pergunta">Como funciona o atendimento na prática?</div>
+        <div class="faq-resposta">Após a adesão, você entra para um canal exclusivo de atendimento via WhatsApp. Nossa equipe responde em até 48 horas úteis. Para casos urgentes, é possível agendar videochamada com prioridade.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pergunta">O serviço está dentro das normas da OAB?</div>
+        <div class="faq-resposta">Sim. A prestação de orientação jurídica por assinatura é permitida pelo Estatuto da OAB e pelo Código de Ética e Disciplina. Atuamos dentro dos limites legais e éticos da profissão.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pergunta">Quanto tempo leva para receber uma resposta?</div>
+        <div class="faq-resposta">Respondemos em até 48 horas úteis. Para sindicâncias com prazo urgente, sinalizamos a urgência no atendimento e priorizamos a orientação.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta">
+  <div class="container">
+    <h2 class="section-title">Pronto para ter proteção<br/>jurídica de verdade?</h2>
+    <p>Junte-se aos primeiros médicos da Araújo &amp; Cunha e tenha advogados especializados ao seu lado todos os dias.</p>
+    <div class="cta-btns">
+      <a href="#planos" class="btn-primary">Ver Planos</a>
+      <a href="https://wa.me/5511984514456?text=Olá!%20Tenho%20interesse%20na%20assessoria%20jurídica%20médica." target="_blank" class="btn-secondary" style="color:var(--branco);border-color:rgba(255,255,255,0.35);">Falar com Advogado</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <strong style="color:rgba(255,255,255,0.6);">Araújo &amp; Cunha Assessoria Jurídica</strong><br/>
+    Dr. Luiz Araújo · OAB/MG 238.469 · <a href="tel:11984514456">(11) 98451-4456</a><br/>
+    Dra. Luciana Cunha · <a href="tel:31999085326">(31) 99908-5326</a><br/><br/>
+    <em style="font-size:0.75rem;">Este site tem caráter informativo. A assessoria por assinatura consiste em orientação jurídica preventiva e não configura representação processual.</em>
+  </p>
+</footer>
+
+<!-- WHATSAPP FIXO -->
+<a href="https://wa.me/5511984514456?text=Olá!%20Tenho%20interesse%20na%20assessoria%20jurídica%20médica." target="_blank" class="whatsapp-fixo" title="Falar no WhatsApp">
+  &#128172;
+</a>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-pergunta').forEach(p => {
+    p.addEventListener('click', () => {
+      const item = p.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
